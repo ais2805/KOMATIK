@@ -40,7 +40,12 @@ export function pairingMarkup(draft) {
   return `<div class="pair-panel"><div class="button-row">${[0,1].map(i=>`<button type="button" class="btn small ${Number(second)===i?'':'secondary'}" data-action="pair-tab" data-index="${i}" aria-pressed="${Number(second)===i}">Baris ${i+1} dan ${i+2}</button>`).join('')}</div><div class="pot-pairs ${paired?'paired':''}"><small>Baris ${second?2:1} · ${base} pot</small>${row(base,false)}<small>Baris ${second?3:2} · ${top} pot</small>${row(top,true)}</div><button class="btn soft" type="button" data-action="pair">${paired?'Lepaskan pasangan':'Pasangkan pot'}</button><p class="pair-caption" aria-live="polite">${paired?`${base} pasang sejajar. Pot bergaris putus-putus belum mendapat pasangan. Hitung sendiri: ada berapa pot tambahan?`:'Pasangkan pot dari kedua baris. Perhatikan pot yang tersisa.'}</p></div>`;
 }
 
-export function bridgeMarkup(d) {
-  const complete=d && Number(d.row4)===18 && Number(d.row5)===22;
-  return `<div class="bridge-feedback ${complete?'built':''}" role="img" aria-label="${complete?'Jembatan tersambung pada 18 dan 22':'Dua papan jembatan masih kosong'}"><div class="bank"></div>${[6,10,14,complete?18:'?',complete?22:'?'].map((x,i)=>`<span class="plank ${i>2&&!complete?'gap':''}">${x}</span>`).join('')}<div class="bank"></div></div><p class="micro">${complete?'Jembatan tersambung! Dua papan terakhir cocok dengan perubahan yang kamu temukan.':'Bantu Si KOMA menemukan dua papan yang cocok. Periksa setelah jawaban awal disimpan.'}</p>`;
+export function bridgeMarkup(d, kind='increasing') {
+  const down=kind==='decreasing';
+  const label=down?'Pola mengecil':'Pola membesar';
+  const values=down?[35,30,25,20,15]:[6,10,14,18,22];
+  const fields=down?['down4','down5']:['row4','row5'];
+  const complete=!!d && fields.every((key,i)=>String(d[key]??'').trim()!=='' && Number(d[key])===values[i+3]);
+  const shown=values.map((v,i)=>i<3||complete?v:'?');
+  return `<h3>${label}</h3><div class="bridge-feedback ${complete?'built':''}" role="img" aria-label="${label}: ${shown.join(', ')}"><div class="bank"></div>${shown.map((x,i)=>`<span class="plank ${i>2&&!complete?'gap':''}">${x}</span>`).join('')}<div class="bank"></div></div><p class="micro">${complete?`Jembatan tersambung! ${label}: setiap langkah ${down?'berkurang 5':'bertambah 4'}.`:`Dua papan pola ${down?'mengecil':'membesar'} belum tersambung. Lengkapi bilangan sesuai aturan, lalu simpan jawabanmu.`}</p>`;
 }

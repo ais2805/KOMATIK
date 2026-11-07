@@ -12,7 +12,7 @@ export function evaluationPDF(p){
   const text=t=>String(t||'(kosong)').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g,'');
   const ensure=h=>{if(doc.y+h>760)doc.addPage();};
   doc.fontSize(17).text('KOMATIK | Laporan Evaluasi');doc.moveDown(.5);
-  doc.fontSize(10).text('Kode siswa: '+text(p.student.code)+'    Kelas: '+text(p.student.className));
+  doc.fontSize(10).text('Nama siswa: '+text(p.student.code)+'    Kelas: '+text(p.student.className));
   doc.text('Waktu pengumpulan (WIB): '+new Date(p.createdAt).toLocaleString('id-ID',{timeZone:'Asia/Jakarta'}));
   doc.fontSize(8).text('Nomor pengumpulan: '+p.id);doc.moveDown();
   doc.fontSize(10).text('Jawaban awal siswa. Guru memberi skor 0–4 per soal menggunakan rubrik penelitian. Skor maksimum evaluasi website: 40.');doc.moveDown();

@@ -30,7 +30,7 @@ export function classroomView(rows,filter=''){
  ${filtered.length?filtered.map(r=>`<article class="class-entry"><strong>${esc(r.student.code)} · ${esc(r.student.className)}</strong><p>${[1,2,3,4].map(i=>'A'+i+' · '+(r.activities['a'+i]||'Belum diterima')).join(' / ')}</p><button class="btn small soft" data-action="class-progress" data-id="${esc(r.id)}">Lihat bukti aktivitas</button>${r.evaluations.length?r.evaluations.map(e=>`<div><p>Evaluasi diterima · ${esc(new Date(e.at).toLocaleString('id-ID'))}</p><p>${teacherNames.map((n,i)=>n+' '+(e.indicators[i]===null?'—':e.indicators[i]+'%')).join(' · ')}</p><button class="btn small" data-action="class-report" data-id="${esc(e.id)}">Buka dan nilai</button></div>`).join(''):'<p>Evaluasi belum diterima.</p>'}</article>`).join(''):'<p>Belum ada sesi yang tercatat untuk kelas ini.</p>'}</div>`;
 }
 export function classCSV(rows,filter){
- const out=[['Kode siswa','Kelas','Sesi','A1','A2','A3','A4','Nomor evaluasi',...teacherNames.map(n=>n+' (%)')]];
+ const out=[['Nama siswa','Kelas','Sesi','A1','A2','A3','A4','Nomor evaluasi',...teacherNames.map(n=>n+' (%)')]];
  for(const r of rows.filter(r=>!filter||r.student.className===filter))for(const e of r.evaluations.length?r.evaluations:[null])out.push([r.student.code,r.student.className,r.id,...[1,2,3,4].map(i=>r.activities['a'+i]||'Belum diterima'),e?.id||'',...(e?.indicators||Array(5).fill(''))]);
  return '\uFEFF'+out.map(row=>row.map(csvCell).join(',')).join('\r\n');
 }

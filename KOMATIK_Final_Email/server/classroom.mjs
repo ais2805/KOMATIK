@@ -16,7 +16,7 @@ export async function sessionAccess(store,id,token,student,create=false){
   if(!isUUID(id)||typeof token!=='string'||!/^[a-f0-9]{64}$/.test(token))fail(403,'Kode pemulihan sesi tidak sesuai.');
   const hash=digest(token).toString('hex'), key='sessions/'+id;
   if(create) {
-    if(!student||['code','className'].some(k=>typeof student[k]!=='string'||!student[k].trim()||student[k].length>30||/[\r\n]/.test(student[k])))fail(400,'Kode siswa atau kelas tidak sesuai.');
+    if(!student||['code','className'].some(k=>typeof student[k]!=='string'||!student[k].trim()||student[k].length>(k==='code'?100:30)||/[\r\n]/.test(student[k])))fail(400,'Nama siswa atau kelas tidak sesuai.');
     await store.setJSON(key,{hash,student:{code:student.code,className:student.className}},{onlyIfNew:true});
   }
   const entry=await store.get(key,{type:'json',consistency:'strong'});
