@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {sequence,unlocked,newState,csvCell,esc} from '../public/core.js';import {stages,evaluation,quiz} from '../public/content.js';
+test('pola membesar, mengecil dan batas bilangan',()=>{assert.deepEqual(sequence(6,4,6),[6,10,14,18,22,26]);assert.deepEqual(sequence(60,-6,8),[60,54,48,42,36,30,24,18]);assert.throws(()=>sequence(3,-4,4));assert.throws(()=>sequence(98,4,4));assert.throws(()=>sequence(5,0,5));assert.throws(()=>sequence(5,1.5,5));});
+test('urutan tahap tidak terlewati dan dapat dibuka ulang',()=>{const s=newState();assert.equal(unlocked('materi',s,stages),true);assert.equal(unlocked('evaluasi',s,stages),false);s.done=['materi'];assert.equal(unlocked('a1',s,stages),true);assert.equal(unlocked('a2',s,stages),false);s.done=stages.map(x=>x.id);assert.equal(unlocked('a2',s,stages),true);});
+test('cakupan evaluasi seimbang dan kuis berisi delapan soal',()=>{assert.equal(evaluation.length,10);const groups={};evaluation.forEach(x=>groups[x[0]]=(groups[x[0]]||0)+1);assert.deepEqual(Object.values(groups),[2,2,2,2,2]);assert.equal(quiz.length,8);});
+test('teks siswa aman untuk HTML dan ekspor spreadsheet',()=>{assert.equal(esc('<img onerror="x">'),'&lt;img onerror=&quot;x&quot;&gt;');assert.equal(csvCell('=1+1'),'"\'=1+1"');assert.equal(csvCell('a"b'),'"a""b"');});

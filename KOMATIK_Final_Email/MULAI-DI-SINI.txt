@@ -1,0 +1,10 @@
+KOMATIK FINAL EMAIL — 7 November 2026
+
+Baca PANDUAN_DEPLOY_NETLIFY.md terlebih dahulu.
+Paket ini mengirim hasil evaluasi sebagai PDF ke email guru melalui Netlify Functions + Resend.
+JANGAN unggah hanya public ke Netlify Drop untuk mengaktifkan email.
+Deploy seluruh proyek melalui GitHub–Netlify atau Netlify CLI.
+Isi RESEND_API_KEY, MAIL_FROM, TEACHER_EMAIL pada Environment variables Netlify.
+PDF dapat dicetak dan dikoreksi manual. CSV/JSON tetap tersedia sebagai cadangan.
+Tidak ada alamat guru, API key, atau kredensial yang ditanam dalam paket.
+Konfigurasi dan uji email sungguhan diperlukan sebelum digunakan siswa.
