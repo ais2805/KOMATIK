@@ -1,0 +1,123 @@
+PANDUAN KOMATIK VERSI REVISI PEMBIMBING
+
+Mulai dari sini
+Paket ini memakai Netlify Functions dan Netlify Blobs untuk identitas serta progres lintas perangkat. Pasang melalui repository GitHub yang terhubung ke Netlify. Mengunggah folder public saja melalui Netlify Drop atau membuka index.html langsung tidak mengaktifkan login dan penyimpanan server.
+
+A. MEMPERBARUI REPOSITORY YANG SUDAH ADA
+1. Simpan salinan ZIP website lama sebelum mengganti berkas. Riwayat commit GitHub juga dapat digunakan untuk mengembalikan kode.
+2. Ekstrak ZIP revisi. Buka folder KOMATIK_Revisi_Pembimbing. Di dalamnya ada public, server, netlify, scripts, tests, docs, package.json, package-lock.json, dan netlify.toml.
+3. Buka repository KOMATIK di GitHub. Jika proyek lama berada dalam KOMATIK_Final_Email, tetap gunakan folder itu sebagai lokasi proyek.
+4. Di dalam KOMATIK_Final_Email, pilih Add file > Upload files. Seret ISI folder hasil ekstrak, bukan folder pembungkus KOMATIK_Revisi_Pembimbing. Berkas dengan jalur sama akan diperbarui. public tetap satu folder; server tetap satu folder. Jangan membuat public/public atau KOMATIK_Final_Email/KOMATIK_Revisi_Pembimbing.
+5. Pada kolom Commit changes di bagian bawah, tulis: Revisi pembimbing KOMATIK dengan token dan progres lintas perangkat. Simpan commit.
+6. Paket revisi menggunakan satu fungsi bernama api.mjs. Jika folder netlify/functions lama masih berisi fungsi lain, hapus fungsi lama yang bukan bagian paket ini melalui GitHub dan commit perubahan tersebut. Ini mencegah endpoint lama tetap aktif. Jangan menghapus repository atau proyek Netlify.
+7. Jika sulit mengganti banyak berkas melalui browser, gunakan GitHub Desktop: Clone repository > Show in Explorer > buka folder proyek > ganti isi folder proyek dengan isi paket revisi > tinjau daftar perubahan > Commit to main > Push origin. Penggantian folder harus dilakukan di lokasi proyek yang sama, setelah membuat cadangan.
+
+B. PENGATURAN BUILD NETLIFY
+Buka proyek Netlify yang sudah digunakan. Cari Project configuration > Developer settings > Continuous deployment > Build settings > Configure. Nama bagian dapat sedikit berbeda menurut tampilan akun.
+
+Jika package.json berada di KOMATIK_Final_Email:
+  Branch to deploy: main
+  Base directory: KOMATIK_Final_Email
+  Build command: npm run build
+  Publish directory: public
+  Functions directory: netlify/functions
+
+Jika package.json langsung berada di akar repository:
+  Base directory: kosong
+  Pengaturan lain tetap sama.
+
+Publish dan Functions directory dihitung dari Base directory. Jangan ulangi KOMATIK_Final_Email pada kedua kolom tersebut. netlify.toml dalam paket juga memuat pengaturan publish dan functions.
+
+C. DUA VARIABEL BARU YANG WAJIB DIISI
+Buka Project configuration > Environment variables > Add a variable > Add a single variable.
+
+1. Key: TEACHER_PASSWORD
+   Value: kata sandi guru yang Ibu tentukan sendiri, minimal 12 karakter. Gunakan kata sandi panjang yang unik. Ini digunakan untuk masuk Ruang Guru.
+2. Key: SESSION_SECRET
+   Value: string acak rahasia minimal 32 karakter, disarankan 64 karakter heksadesimal dari generator kata sandi. Ini kunci internal aplikasi, bukan token siswa. Gunakan nilai berbeda dari kata sandi guru.
+
+Centang Contains secret values. Pastikan Functions termasuk dalam scopes (All scopes juga bisa). Isi nilai Production. Jika Same value for all deploy contexts tidak tersedia, pilih Different value for each deploy context lalu isi Production. Konteks preview boleh kosong bila tidak digunakan.
+
+Jangan menuliskan kata sandi, SESSION_SECRET, atau API key di file JavaScript, GitHub, maupun chat. Nilai contoh di .env.example bukan kata sandi siap pakai. ZIP tidak berisi kata sandi produksi.
+
+D. EMAIL EVALUASI
+Pertahankan variabel yang sudah digunakan jika masih valid:
+  RESEND_API_KEY: API key Resend.
+  MAIL_FROM: alamat pengirim yang diizinkan Resend.
+  TEACHER_EMAIL: alamat penerima laporan evaluasi.
+Semua harus tersedia pada Functions dalam konteks Production.
+
+Untuk pengirim percobaan onboarding@resend.dev, gunakan alamat penerima yang diizinkan oleh akun Resend. Jika akan mengirim ke alamat guru yang berbeda, verifikasi domain pengirim dan ikuti ketentuan penerima Resend. Periksa dashboard Resend apabila layanan menolak pengiriman.
+
+Tanpa konfigurasi email, jawaban tetap dapat disimpan dan dicetak melalui Ruang Guru. Setelah siswa mengumpulkan evaluasi, tekan Kirim PDF ke email guru. Guru menerima PDF jawaban untuk dicetak dan dikoreksi manual. Status diterima layanan email belum berarti sudah masuk kotak masuk; periksa spam atau log Resend.
+
+E. DEPLOY ULANG DAN UJI COBA
+1. Setelah seluruh variabel disimpan, buka Deploys > Trigger deploy > Deploy project/Deploy site.
+2. Tunggu deploy terbaru berstatus Published. Buka Open production deploy.
+3. Gunakan proyek Netlify yang sama agar penyimpanan progres versi ini tetap terhubung. Deploy ulang kode pada proyek yang sama tidak sengaja mengosongkan daftar siswa.
+4. Klik Ruang Guru di bagian bawah website. Masuk menggunakan TEACHER_PASSWORD.
+5. Daftarkan satu siswa percobaan dengan kode UJI-01, kelas UJI, dan nama Siswa Uji. Data ini dipisahkan dari siswa penelitian karena kelas/kodenya berbeda.
+6. Simpan kartu token. Keluar dari Ruang Guru, lalu masuk sebagai siswa uji. Isi kode, kelas, nama, dan token sesuai kartu.
+7. Pilih mode, selesaikan Materi, dan kerjakan langkah awal Aktivitas 1. Tekan Simpan progres. Tunggu tanda Progres tersimpan di server.
+8. Keluar melalui tombol identitas siswa > Ganti siswa. Masuk di perangkat kedua dengan kartu yang sama. Buka aktivitas tadi: progres dan draf yang tersinkronisasi harus tersedia.
+9. Uji kumpulkan evaluasi, cetak laporan, dan kirim email sebelum digunakan untuk seluruh kelas.
+
+F. KODE DAN TOKEN SISWA
+Guru menentukan kode, kelas, dan nama melalui Daftarkan siswa. Kode boleh memakai huruf, angka, tanda - atau _, maksimal 24 karakter. Kode yang sama tidak boleh didaftarkan dua kali dalam kelas yang sama. Gunakan kode unik per siswa.
+
+Aplikasi membuat token pribadi secara acak. Unduh kartu akses dan berikan hanya kepada siswa terkait. Token hanya ditampilkan saat dibuat; jika hilang, guru memilih Ganti token. Token lama dan sesi lama berhenti berlaku, tetapi progres tidak dihapus.
+
+Pada perangkat lain, siswa harus menggunakan kode, kelas, nama, dan token yang sama. Pilihan Mode Petualangan atau Mode Biasa mengubah tampilan beranda saja; materi, urutan tahap, jawaban, dan progres tetap sama.
+
+G. MENYIMPAN DAN MELANJUTKAN
+Jawaban disimpan otomatis setelah jeda singkat. Draf sementara juga disimpan di tab. Sebelum menutup atau berganti perangkat, tekan Simpan progres dan tunggu tanda berhasil. Sinkronisasi lintas perangkat memerlukan internet.
+
+Gunakan satu perangkat pada satu waktu untuk satu siswa. Jika dua perangkat mengubah progres bersamaan, aplikasi menolak penimpaan data lama. Unduh cadangan draf bila diperlukan, lalu muat data server. Draf yang belum berhasil disinkronkan belum tersedia di perangkat lain.
+
+Sesi masuk berlaku delapan jam. Pada perangkat bersama, gunakan Ganti siswa setelah selesai. Token diperlukan untuk masuk kembali ketika sesi berakhir. Jangan menghapus data browser saat masih ada draf yang belum tersinkronisasi.
+
+Data lama yang hanya tersimpan di browser versi sebelumnya tidak otomatis masuk ke akun baru. Simpan laporan/cadangan versi lama sebelum migrasi. Versi ini membuat daftar siswa dan progres server baru.
+
+H. POIN DAN APRESIASI
+Aktivitas objektif dan kuis:
+  Benar pada kesempatan pertama: 10 poin.
+  Benar pada kesempatan kedua: 5 poin.
+  Dua jawaban keliru: 0 poin, pembahasan tersedia, siswa tetap bisa melanjutkan.
+Aturan berlaku per langkah aktivitas, bukan per kolom. Isian yang belum lengkap tidak menghabiskan kesempatan. Jawaban awal dan perbaikan dicatat.
+
+Dugaan awal dan refleksi terbuka dicatat tanpa hukuman benar/salah otomatis. Alasan uraian diperiksa guru. Games memberi tiga bintang ketika misi selesai, tanpa pengurangan karena percobaan. Evaluasi tidak mengurangi poin.
+
+Selesai satu aktivitas memunculkan apresiasi dan membuka tahap berikutnya. Hasil kuis menampilkan pecahan vertikal jawaban benar pada kesempatan pertama dari delapan soal; hasil setelah kesempatan kedua dan poin penghargaan dijelaskan terpisah.
+
+I. MUSIK
+Klik Nyalakan musik di bagian bawah halaman. Atur Volume atau matikan kapan saja. Musik berupa melodi instrumental sederhana yang disintesis di perangkat; tidak memerlukan file audio dari pihak ketiga. Musik berhenti sementara saat tayangan materi diputar atau tab disembunyikan. Tombol Suara mengatur efek jawaban, terpisah dari musik.
+
+J. MENILAI EVALUASI SECARA MANUAL
+1. Siswa menulis jawaban dan alasan untuk 10 soal, meninjau, lalu mengumpulkan. Jawaban yang telah diterima server terkunci.
+2. Guru membuka Ruang Guru > Buka progres pada siswa terkait.
+3. Baca respons dan buka Rubrik khusus soal. Beri skor 0–4 serta catatan.
+4. Tekan Simpan penilaian ke server sebelum pindah siswa/halaman. Nilai guru tidak disimpan otomatis.
+5. Setelah semua 10 soal dinilai, aplikasi menghitung total maksimum 40 dan nilai = total/40 × 100. Butir yang belum diperiksa tetap Belum dinilai.
+6. Gunakan Cetak laporan siswa/simpan PDF atau Unduh rekap CSV. Guru dapat menilai pada hasil cetak terlebih dahulu lalu memasukkan skor.
+7. Rubrik Word ada di docs/Rubrik_Evaluasi_KOMATIK.docx. Setiap indikator diwakili dua soal, maksimum 8. Rubrik ini khusus evaluasi website, bukan pengganti instrumen pretest/posttest penelitian.
+
+K. MENGEDIT ISI DI KEMUDIAN HARI
+  Capaian/Tujuan Pembelajaran, materi, profil: public/js/pages.js
+  Narasi tambahan dan penghubung langkah: public/js/experience.js
+  Isi empat aktivitas dan penilaian objektif: public/js/aktivitas.js
+  Tayangan animasi bawaan: public/js/video.js
+  Kuis dan Games: public/js/kuis-games.js
+  Evaluasi website: public/js/evaluasi.js
+  Rubrik dan penyelarasan soal 4: public/js/rubrik.js
+  Soal yang dicetak pada PDF email: server/evaluation.json
+  Tampilan tambahan: public/css/revisi.css
+
+Jika soal evaluasi diubah, selaraskan soal website, server/evaluation.json, rubrik website, dan rubrik Word. Hindari mengganti identitas soal ketika siswa sedang mengerjakan. Maskot Si KOMA dan gambar pola asli dari ZIP sumber dipertahankan.
+
+L. CAKUPAN PEMERIKSAAN
+Kode, berkas tampilan, autentikasi, pemisahan data siswa, sinkronisasi dua sesi, konflik versi, penggantian token, penguncian evaluasi, dan penskoran manual telah diperiksa dalam lingkungan pengembangan. Alur tampilan masuk, dua mode, kesempatan kedua, dan pemulihan langkah telah dicoba melalui browser. Deployment Netlify dan penerimaan email pada akun Ibu tetap perlu diuji setelah konfigurasi produksi diisi.
+
+Rujukan pengaturan layanan:
+https://docs.netlify.com/build/configure-builds/overview/
+https://docs.netlify.com/build/functions/configuration/
+https://docs.netlify.com/build/functions/environment-variables/

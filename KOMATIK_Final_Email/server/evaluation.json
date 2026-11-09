@@ -1,0 +1,119 @@
+[
+  {
+    "no": 1,
+    "ind": "dugaan",
+    "soal": "Dina menyusun kelereng ke dalam kotak. Kotak ke-1 berisi 4 kelereng, kotak ke-2 berisi 9 kelereng, dan kotak ke-3 berisi 14 kelereng. Dugalah isi kotak ke-5. Tuliskan dasar dugaanmu.",
+    "seq": [
+      4,
+      9,
+      14,
+      null,
+      null
+    ],
+    "kunci": "24 kelereng",
+    "bahas": "Setiap kotak bertambah 5 kelereng (4 ke 9, 9 ke 14). Dugaan yang beralasan: kotak ke-4 berisi 19 dan kotak ke-5 berisi 24 kelereng."
+  },
+  {
+    "no": 2,
+    "ind": "dugaan",
+    "soal": "Air di tandon sekolah pada hari Senin 100 liter, Selasa 92 liter, dan Rabu 84 liter. Jika berkurang dengan cara yang sama, dugalah banyak air pada hari Jumat. Apa dasar dugaanmu?",
+    "seq": [
+      100,
+      92,
+      84
+    ],
+    "kunci": "68 liter",
+    "bahas": "Setiap hari berkurang 8 liter. Kamis: 84 − 8 = 76 liter, Jumat: 76 − 8 = 68 liter."
+  },
+  {
+    "no": 3,
+    "ind": "pola",
+    "soal": "Perhatikan pola 15, 21, 27, 33. Bandingkan sedikitnya dua pasangan bilangan. Apa hubungan antarbilangannya dan berapa bilangan berikutnya?",
+    "seq": [
+      15,
+      21,
+      27,
+      33,
+      null
+    ],
+    "kunci": "Tambah 6; bilangan berikutnya 39",
+    "bahas": "15 ke 21 bertambah 6, 21 ke 27 bertambah 6, 27 ke 33 bertambah 6. Hubungannya tetap tambah 6, jadi 33 + 6 = 39."
+  },
+  {
+    "no": 4,
+    "ind": "pola",
+    "soal": "Perhatikan pola 75, 68, 61, 54. Bandingkan sedikitnya dua pasangan bilangan. Apa hubungan antarbilangannya dan berapa bilangan berikutnya?",
+    "seq": [
+      75,
+      68,
+      61,
+      54,
+      null
+    ],
+    "kunci": "Kurangi 7; bilangan berikutnya 47",
+    "bahas": "75 ke 68 berkurang 7, 68 ke 61 berkurang 7, 61 ke 54 berkurang 7. Jadi 54 − 7 = 47."
+  },
+  {
+    "no": 5,
+    "ind": "justifikasi",
+    "soal": "Raka berkata bahwa aturan pola 3, 7, 11, 15 adalah \"tambah 4\". Apakah Raka benar? Buktikan dengan perhitungan.",
+    "seq": [
+      3,
+      7,
+      11,
+      15
+    ],
+    "kunci": "Benar",
+    "bahas": "Raka benar karena 3 + 4 = 7, 7 + 4 = 11, dan 11 + 4 = 15. Aturan tambah 4 cocok untuk semua pasangan."
+  },
+  {
+    "no": 6,
+    "ind": "justifikasi",
+    "soal": "Sari berkata bahwa bilangan berikutnya dari pola 50, 44, 38, 32 adalah 28. Setujukah kamu? Berikan alasanmu.",
+    "seq": [
+      50,
+      44,
+      38,
+      32,
+      null
+    ],
+    "kunci": "Tidak setuju; seharusnya 26",
+    "bahas": "Pola berkurang 6 setiap kali (50 − 6 = 44, 44 − 6 = 38, 38 − 6 = 32). Bilangan berikutnya 32 − 6 = 26, bukan 28."
+  },
+  {
+    "no": 7,
+    "ind": "generalisasi",
+    "soal": "Baris pertama kursi di aula berisi 9 kursi. Setiap baris berikutnya bertambah 3 kursi. Berapa kursi pada baris ke-7? Jelaskan aturan yang kamu gunakan.",
+    "kunci": "27 kursi",
+    "bahas": "Aturan: mulai dari 9, tambah 3 setiap baris. Dari baris 1 ke baris 7 ada 6 kali penambahan: 9, 12, 15, 18, 21, 24, 27."
+  },
+  {
+    "no": 8,
+    "ind": "generalisasi",
+    "soal": "Banyak buku pada tumpukan di perpustakaan membentuk pola 64, 58, 52, ... Berapa banyak buku pada tumpukan ke-6? Jelaskan aturan yang kamu gunakan.",
+    "seq": [
+      64,
+      58,
+      52,
+      null,
+      null,
+      null
+    ],
+    "kunci": "34 buku",
+    "bahas": "Aturan: mulai dari 64, kurangi 6 setiap tumpukan. 64, 58, 52, 46, 40, 34. Tumpukan ke-6 berisi 34 buku."
+  },
+  {
+    "no": 9,
+    "ind": "kesimpulan",
+    "soal": "Kelereng Beni pada minggu ke-1 ada 12, minggu ke-2 ada 20, dan minggu ke-3 ada 28. Polanya tetap. Pada minggu ke berapa kelereng Beni pertama kali lebih dari 50? Tuliskan langkah dan kesimpulanmu.",
+    "kunci": "Minggu ke-6 (52 kelereng)",
+    "bahas": "Bertambah 8 setiap minggu: 12, 20, 28, 36, 44, 52. Pada minggu ke-5 baru 44 (belum lebih dari 50). Kesimpulan: minggu ke-6, dengan 52 kelereng."
+  },
+  {
+    "no": 10,
+    "ind": "kesimpulan",
+    "soal": "Sisa halaman buku cerita Ani yang belum dibaca: hari ke-1 90 halaman, hari ke-2 78 halaman, hari ke-3 66 halaman. Pada hari ke berapa sisa halamannya tinggal 30? Tuliskan langkah dan kesimpulanmu.",
+    "kunci": "Hari ke-6",
+    "bahas": "Berkurang 12 setiap hari: 90, 78, 66, 54, 42, 30. Kesimpulan: sisa halaman tinggal 30 pada hari ke-6."
+  }
+]

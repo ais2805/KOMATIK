@@ -1,0 +1,112 @@
+[
+  {
+    "no": 1,
+    "kunci": "24 kelereng; perubahan +5, kotak ke-4 = 19 dan ke-5 = 24.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Ada dugaan atau upaya memakai data, tetapi pola dan hasil belum tepat.",
+      "Jawaban 24 tanpa dasar; atau dugaan belum tepat tetapi sudah mengenali perubahan +5.",
+      "Dugaan 24 dan dasar +5 benar, tetapi perpindahan belum lengkap; atau cara benar dengan salah hitung kecil.",
+      "Dugaan 24 benar, pola +5 tepat, dan perpindahan hingga kotak ke-5 dijelaskan."
+    ]
+  },
+  {
+    "no": 2,
+    "kunci": "68 liter; setiap hari −8, Kamis 76 dan Jumat 68.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Ada dugaan atau upaya memakai data, tetapi pola dan hasil belum tepat.",
+      "Jawaban 68 tanpa dasar; atau mengenali pengurangan 8 tetapi dugaan belum tepat.",
+      "Dugaan dan pengurangan 8 benar, tetapi urutan belum lengkap; atau cara benar dengan salah hitung kecil.",
+      "Dugaan 68 benar, pengurangan 8 tepat, dan urutan sampai Jumat dijelaskan."
+    ]
+  },
+  {
+    "no": 3,
+    "kunci": "Tambah 6; 21 − 15 = 6 dan 27 − 21 = 6; berikutnya 39.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Ada satu perbandingan relevan, tetapi hubungan dan kelanjutannya belum tepat.",
+      "Hubungan +6 tepat tanpa bukti memadai atau bilangan lanjutan keliru; atau hanya jawaban 39 benar.",
+      "Hubungan +6 dan 39 tepat, tetapi bukti hanya satu pasangan.",
+      "Hubungan +6, bukti sedikitnya dua pasangan, dan bilangan 39 tepat."
+    ]
+  },
+  {
+    "no": 4,
+    "kunci": "Kurangi 7; 75 − 68 = 7 dan 68 − 61 = 7; berikutnya 47.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Ada satu perbandingan relevan, tetapi hubungan dan kelanjutannya belum tepat.",
+      "Hubungan −7 tepat tanpa bukti memadai atau bilangan lanjutan keliru; atau hanya jawaban 47 benar.",
+      "Hubungan −7 dan 47 tepat, tetapi bukti hanya satu pasangan.",
+      "Hubungan −7, bukti sedikitnya dua pasangan, dan bilangan 47 tepat."
+    ]
+  },
+  {
+    "no": 5,
+    "kunci": "Raka benar; 3 + 4 = 7, 7 + 4 = 11, dan 11 + 4 = 15.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Hanya menyatakan benar tanpa bukti; atau ada upaya bukti yang belum tepat.",
+      "Pendapat tepat dengan satu perhitungan pasangan yang benar.",
+      "Pendapat tepat dengan dua perhitungan pasangan yang benar.",
+      "Menyatakan Raka benar dan memberi perhitungan benar pada semua pasangan."
+    ]
+  },
+  {
+    "no": 6,
+    "kunci": "Tidak setuju; tiap suku berkurang 6 sehingga 32 − 6 = 26, bukan 28.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Hanya menyatakan tidak setuju tanpa bukti; atau upaya bukti belum tepat.",
+      "Ada sebagian bukti relevan atau hasil 26 benar, tetapi penjelasan belum lengkap.",
+      "Menolak 28 dan memperoleh 26 dengan aturan −6, tetapi bukti pasangan belum lengkap.",
+      "Menolak 28, membuktikan pola −6 pada sedikitnya dua pasangan, dan menghitung 26."
+    ]
+  },
+  {
+    "no": 7,
+    "kunci": "Mulai dari 9, tambah 3 setiap berpindah baris. Enam perpindahan menghasilkan 27 kursi.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Ada langkah relevan, tetapi aturan dan hasil belum tepat.",
+      "Aturan disebut tetapi penerapan tidak konsisten; atau 27 benar tanpa aturan.",
+      "Aturan dan cara penerapan benar, tetapi ada salah hitung kecil atau satu langkah belum ditulis.",
+      "Aturan awal 9 dan +3 jelas, diterapkan enam perpindahan, menghasilkan 27."
+    ]
+  },
+  {
+    "no": 8,
+    "kunci": "Mulai dari 64, kurangi 6 setiap tumpukan: 64, 58, 52, 46, 40, 34.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Ada langkah relevan, tetapi aturan dan hasil belum tepat.",
+      "Aturan disebut tetapi penerapan tidak konsisten; atau 34 benar tanpa aturan.",
+      "Aturan dan cara penerapan benar, tetapi ada salah hitung kecil atau satu langkah belum ditulis.",
+      "Aturan awal 64 dan −6 jelas, diterapkan lima perpindahan, menghasilkan 34."
+    ]
+  },
+  {
+    "no": 9,
+    "kunci": "Minggu ke-6: 52 kelereng. Minggu ke-5 masih 44, sehingga ke-6 pertama kali melebihi 50.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Hanya menyebut minggu ke-6 tanpa langkah; atau upaya relevan belum menghasilkan kesimpulan tepat.",
+      "Kesimpulan benar dengan sebagian langkah; atau deret benar tetapi kesimpulan tidak dinyatakan.",
+      "Kesimpulan minggu ke-6 dan 52 benar dengan pola +8, tetapi belum membuktikan batas minggu sebelumnya.",
+      "Kesimpulan minggu ke-6 benar; pola +8 dan bukti minggu ke-5 = 44 serta ke-6 = 52 jelas."
+    ]
+  },
+  {
+    "no": 10,
+    "kunci": "Hari ke-6; 90, 78, 66, 54, 42, 30 dengan pengurangan 12 setiap hari.",
+    "lv": [
+      "Tidak menjawab atau seluruh respons tidak berkaitan dengan soal.",
+      "Hanya menyebut hari ke-6 tanpa langkah; atau upaya relevan belum menghasilkan kesimpulan tepat.",
+      "Kesimpulan benar dengan sebagian langkah; atau deret benar tanpa kesimpulan hari.",
+      "Kesimpulan dan pola −12 benar, tetapi satu bagian langkah belum jelas.",
+      "Kesimpulan hari ke-6 benar dan didukung penerapan −12 sampai sisa 30."
+    ]
+  }
+]

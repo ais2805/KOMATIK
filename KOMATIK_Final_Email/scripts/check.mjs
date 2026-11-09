@@ -1,4 +1,5 @@
-import fs from 'node:fs';
-import {execFileSync} from 'node:child_process';
-for(const path of ['server/report.mjs','server/fonts/DejaVuSans.ttf','netlify/functions/evaluation-pdf.mjs','public/index.html','public/style.css','public/app.js','public/content.js','public/core.js','public/config.js','public/journey.js','public/school.js','public/assessment.js','netlify/functions/activity.mjs','netlify/functions/teacher.mjs','server/api.mjs','server/classroom.mjs','server/submission.mjs','public/assets/pola-membesar.mp4','public/assets/pola-mengecil.mp4','public/assets/koma.svg','public/assets/developer.jpg','netlify/functions/submit-evaluation.mjs']){if(!fs.existsSync(path))throw Error('Missing '+path);if(/\.(js|mjs)$/.test(path))execFileSync(process.execPath,['--check',path]);}
-console.log('KOMATIK: static assets and JavaScript syntax verified. Publish directory: public');
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+for(const dir of ['public/js','server','netlify/functions'])for(const f of readdirSync(dir))if(/\.(mjs|js)$/.test(f))execFileSync(process.execPath,['--check',dir+'/'+f],{stdio:'inherit'});
+for(const m of readFileSync('public/index.html','utf8').matchAll(/(?:src|href)="([^"#]+)"/g)){if(!m[1].startsWith('http')&&!existsSync('public/'+m[1]))throw Error('Missing '+m[1]);}
+console.log('KOMATIK: syntax and local assets verified.');
