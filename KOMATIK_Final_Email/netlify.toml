@@ -1,12 +1,12 @@
 [build]
   command = "npm run build"
-  publish = "public"
+  publish = "dist"
   functions = "netlify/functions"
 [build.environment]
   NODE_VERSION = "22"
 [functions]
   node_bundler = "esbuild"
-  included_files = ["server/fonts/**", "server/evaluation.json"]
+  included_files = ["server/fonts/**", "server/v5/rubric.json"]
 [[headers]]
   for = "/*"
   [headers.values]
@@ -14,7 +14,7 @@
     Referrer-Policy = "same-origin"
     X-Frame-Options = "DENY"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; connect-src 'self'; font-src 'self'; frame-src https://www.youtube-nocookie.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
 [[headers]]
   for = "/.netlify/functions/*"
   [headers.values]
