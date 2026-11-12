@@ -62,3 +62,7 @@ Mode Serius dan tampilan lebar 390 piksel diperiksa. Hasil pemeriksaan responsif
 ## Syarat sebelum produksi
 
 Verifikasi Netlify Build Preview, konfigurasi Functions, autentikasi, persistensi Blobs dan transisi data lama. Setelah itu uji Resend dengan akun SIMULASI/UJI di produksi dan pastikan guru menerima PDF. Jangan mengganti aplikasi yang sedang dipakai mengumpulkan data sebelum syarat tersebut terpenuhi.
+
+## Verifikasi Netlify setelah push
+
+Branch development/komatik-v5 tersimpan pada commit 410d940027d1ca72d9a7f7cf427277916afe6ee6 dan draft PR https://github.com/ais2805/KOMATIK/pull/1. Pemeriksaan GitHub netlify/komatik-v4/deploy-preview berstatus success. Halaman https://deploy-preview-1--komatik-v4.netlify.app/ berhasil dibuka dan menampilkan robot kotak serta formulir siswa. API session tanpa autentikasi mengembalikan 401 sebagaimana diharapkan; ini membuktikan fungsi berjalan, belum membuktikan login atau persistensi akun nyata. UI Ruang Guru lokal berhasil memuat dua siswa simulasi, membuka rincian progres, dan memicu unduhan CSV. Pengaturan branch produksi pada dashboard Netlify masih belum diverifikasi.
