@@ -5,3 +5,19 @@ body{font-size:18px}p,label,input,select,textarea,.btn{font-size:18px}input,text
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
 .atlas-grid{display:block;position:absolute;inset:0;width:100%;height:100%}
+
+/* Independent destination; deliberately excluded from the eight-stop route. */
+.map-lab{position:absolute;left:47%;top:8%;transform:translateX(-50%);display:flex;align-items:center;flex-direction:column;padding:9px 17px;background:#fff9e9;border:2px solid #167d70;border-radius:18px;color:#075f55;text-decoration:none;box-shadow:0 4px 12px #153d4733;text-align:center;z-index:1}
+.map-lab>span{font-size:27px;line-height:1}.map-lab b{font-size:16px}.map-lab small{font-size:12px}.map-lab:hover,.map-lab:focus-visible{outline:3px solid #db9b39;outline-offset:3px}
+body.island-expanded{overflow:hidden}
+.island-card.is-expanded{position:fixed;inset:0;z-index:10000;width:100%;height:100%;max-width:none;margin:0;padding:0;border:0;border-radius:0;background:#fffaf0;overflow:auto;display:flex;flex-direction:column}
+.island-card.is-expanded .atlas-intro{flex-wrap:wrap;flex-shrink:0;padding:12px 22px}
+.island-card.is-expanded .atlas-scroll{flex:1;min-height:0;overflow:auto;background:#45b9be}
+.island-card.is-expanded .atlas{min-width:1280px;width:100%;}
+.island-card.is-expanded .map-pin{min-width:135px;max-width:170px;padding:10px}
+.island-card.is-expanded .map-pin b{font-size:19px}
+.island-card.is-expanded .map-pin small{font-size:14px}
+.island-card.is-expanded .map-lab b{font-size:21px}
+.island-card.is-expanded .map-lab small{font-size:15px}
+.island-card.is-expanded .atlas-footer{flex-shrink:0;padding:10px 22px}
+@media(max-width:720px){.island-card.is-expanded .atlas-intro{flex-direction:row;align-items:center;gap:8px}.island-card.is-expanded .atlas-next{display:none}.island-card.is-expanded .atlas-footer{flex-direction:row;flex-wrap:wrap}.island-card.is-expanded .atlas-intro h2{font-size:23px}}

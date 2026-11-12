@@ -29,6 +29,7 @@ function head(title,sub,pill='KELAS IV · FASE B'){return `<div class="page-head
 function iconForNav(id){return icon(id);}
 function navLink(id,title,icon){const active=route===id||(id==='aktivitas'&&/^a[1-4]$/.test(route));return `<a href="#${id}" class="nav-link ${active?'active':''}" ${active?'aria-current="page"':''}><span class="nav-icon" aria-hidden="true">${iconForNav(id)}</span>${title}</a>`;}
 function render(){
+ closeIslandFullscreen();
  route=location.hash.slice(1).replace(/^\//,'')||'beranda';
  if(!C.role){root.innerHTML=loginHTML(route==='guru');return;}
  if(C.role==='teacher'){root.innerHTML=teacherHTML();return;}
@@ -149,7 +150,29 @@ if(f.id==='activity-form'){
 if(f.id==='video-form'){if(!ensureStudent())return;S.drafts.video=captureForm(f);S.records.video??=[];S.records.video.push({at:new Date().toISOString(),data:S.drafts.video});save();toast('Pengamatan video tersimpan.');}
 if(f.id==='mission-form'){if(!ensureStudent())return;const i=activeMission,m=missions[i],d=captureForm(f);if(S.game.done.includes(i))return;if(!d.answer.trim()||!d.reason.trim()){toast('Tuliskan jawaban dan alasanmu.');return;}const correct=m.key===null||normalize(d.answer)===normalize(m.key);S.game.records[i]??=[];S.game.records[i].push({...d,correct,at:new Date().toISOString()});const attempts=S.game.records[i].length;const canFinish=correct||attempts>=2;if(canFinish&&!S.game.done.includes(i))S.game.done.push(i);if(S.game.done.length===5)mark('game');save();try{await flush();}catch{toast(C.msg);return;}const feedback=`<div class="feedback ${correct?'':'warn'}"><strong>${correct?(m.key?'Hasil angka sesuai!':'Kesimpulan tersimpan.'):'Ayo periksa sekali lagi.'}</strong><br>${correct||attempts>=2?m.guide:m.hint}<br>Penjelasanmu tersimpan untuk ditinjau guru.${canFinish?'<p>Pos ini selesai. Kamu boleh melanjutkan.</p>':''}</div>`;document.querySelector('#mission-feedback').innerHTML=feedback;if(canFinish){const slot=document.querySelector('#mission-feedback');slot.innerHTML+=button(i===4?'Selesaikan petualangan →':'Kembali ke peta →',i===4?'finish-game':'map-return','soft','type="button"');}}
 });
+function resetIslandFullscreen() {
+ const card=document.querySelector('.island-card.is-expanded');
+ card?.classList.remove('is-expanded');
+ document.body.classList.remove('island-expanded');
+ const toggle=card?.querySelector('[data-action="island-fullscreen"]');
+ if(toggle){toggle.textContent='⛶ Layar penuh';toggle.setAttribute('aria-pressed','false');toggle.focus({preventScroll:true});}
+}
+function closeIslandFullscreen() {
+ if(document.fullscreenElement?.classList.contains('island-card'))document.exitFullscreen().catch(()=>{});
+ resetIslandFullscreen();
+}
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)resetIslandFullscreen();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeIslandFullscreen();});
 document.addEventListener('click',async e=>{const el=e.target.closest('[data-action]');if(!el)return;const a=el.dataset.action;
+if(a==='island-fullscreen'){
+ const card=el.closest('.island-card');
+ if(card.classList.contains('is-expanded')){closeIslandFullscreen();return;}
+ card.classList.add('is-expanded');document.body.classList.add('island-expanded');
+ el.textContent='⛶ Keluar layar penuh';el.setAttribute('aria-pressed','true');
+ try{if(card.requestFullscreen)await card.requestFullscreen();}catch{/* Expanded view remains available when native fullscreen is unsupported. */}
+ return;
+}
+
 if(a==='close'){dialog.close();return;}if(a==='menu'){document.querySelector('.sidebar').classList.toggle('open');return;}
 if(a==='start'){const id=stages.find(s=>!S.done.includes(s.id))?.id||'materi';if(ensureStudent(id)){dialog.close();go(id)};return;}
 if(a==='help')showModal(`<div class="eyebrow">TIGA LANGKAH MUDAH</div><h2>Siap menjelajah?</h2><div class="waypoint"><span class="tile-icon mint">1</span><p>Baca materi dan coba Mesin Pola.</p></div><div class="waypoint"><span class="tile-icon yellow">2</span><p>Kerjakan empat misi. Tulis jawaban dan alasanmu, lalu periksa.</p></div><div class="waypoint"><span class="tile-icon peach">3</span><p>Ikuti kuis dan games, kemudian tinjau evaluasi sebelum mengirim ke guru.</p></div><p style="margin-top:18px">Gunakan kartu akses dari guru. Pilih mode Petualangan atau Serius; progresnya sama. Laboratorium selalu tersedia. Latihan memberi dua kesempatan. Evaluasi final diperiksa guru. Saat kembali, masuk dengan kartu yang sama lalu pilih Lanjutkan Belajar.</p>${button('Mulai belajar →','start')}`);
