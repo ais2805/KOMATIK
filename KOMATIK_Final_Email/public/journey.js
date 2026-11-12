@@ -9,7 +9,14 @@ export const stops = [
 
 export function chartedMap(stages, state, isOpen) {
   const current = stages.findIndex(stage => !state.done.includes(stage.id));
-  return `<section class="island-card" aria-label="Peta perjalanan Pulau Pola"><div class="atlas-intro"><div><span class="eyebrow">BERSAMA SI KOMA</span><h2>Pulau Pola</h2></div><div class="atlas-next">${current<0?'Seluruh tahap selesai':`Tujuan berikutnya · <strong>${stops[current][0]}</strong>`}</div></div><div class="atlas-scroll" tabindex="0" aria-label="Peta pulau. Geser ke samping pada layar kecil."><div class="atlas"><img class="map-drawing" src="assets/pulau-realistis.png" alt=""><svg class="atlas-grid" viewBox="0 0 1000 440" aria-hidden="true"><path d="M110 167 L230 264 L350 150 L470 264 L570 150 L670 264 L780 150 L890 264" fill="none" stroke="#fff5c7" stroke-width="12" stroke-linejoin="round"/><path d="M110 167 L230 264 L350 150 L470 264 L570 150 L670 264 L780 150 L890 264" fill="none" stroke="#146f67" stroke-width="4" stroke-dasharray="10 8"/></svg>${stages.map((stage,i)=>{
+  // Anchor the route beneath each label, with smooth bends between consecutive stops.
+  const routePoints = stops.map(([, x, y]) => [x * 10, (y + 11) * 4.4]);
+  const route = routePoints.reduce((path, [x, y], i) => {
+    if (!i) return `M${x} ${y}`;
+    const [px, py] = routePoints[i - 1], middle = (px + x) / 2;
+    return `${path} C${middle} ${py} ${middle} ${y} ${x} ${y}`;
+  }, '');
+  return `<section class="island-card" aria-label="Peta perjalanan Pulau Pola"><div class="atlas-intro"><div><span class="eyebrow">BERSAMA SI KOMA</span><h2>Pulau Pola</h2></div><div class="atlas-next">${current<0?'Seluruh tahap selesai':`Tujuan berikutnya · <strong>${stops[current][0]}</strong>`}</div></div><div class="atlas-scroll" tabindex="0" aria-label="Peta pulau. Geser ke samping pada layar kecil."><div class="atlas"><img class="map-drawing" src="assets/pulau-realistis.png" alt=""><svg class="atlas-grid" viewBox="0 0 1000 440" aria-hidden="true"><path d="${route}" fill="none" stroke="#fff5c7" stroke-width="8" stroke-linecap="round"/><path d="${route}" fill="none" stroke="#146f67" stroke-width="3" stroke-linecap="round"/></svg>${stages.map((stage,i)=>{
     const [name,x,y]=stops[i], done=state.done.includes(stage.id),open=isOpen(stage.id);
     const status=done?'Selesai':open?'Sedang dikerjakan':'Belum tersedia';
     return `<a class="map-pin ${done?'done':open?'ready':'locked'}" style="left:${x}%;top:${y+5}%" href="#${stage.id}" aria-label="${name}, ${stage.label}, ${status}"><b>${i+1}. ${name}</b><small>${stage.label} · ${status}</small></a>${i===(current===-1?7:current)?`<img class="map-koma" style="left:${x+5}%;top:${y+1}%" src="assets/koma.svg" alt="Posisi Si KOMA">`:''}`;
