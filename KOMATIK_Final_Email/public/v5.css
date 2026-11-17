@@ -24,3 +24,5 @@ body.island-expanded{overflow:hidden}
 
 /* Preserve the full 3D mascot silhouette in each existing layout slot. */
 img[src*="koma-3d"]{object-fit:contain} .guide>img.koma,.step-narrative>img.koma{flex-shrink:0;height:auto}.mode-choice img[src*="koma-3d"]{max-width:100%;object-fit:contain}.brand img[src*="koma-3d"]{height:auto}
+
+.v5-login input[readonly]{background:#edf4ef;color:#355650;border-color:#c8d8cc;cursor:default}
