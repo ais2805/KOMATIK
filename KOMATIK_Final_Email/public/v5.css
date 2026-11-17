@@ -21,3 +21,6 @@ body.island-expanded{overflow:hidden}
 .island-card.is-expanded .map-lab small{font-size:15px}
 .island-card.is-expanded .atlas-footer{flex-shrink:0;padding:10px 22px}
 @media(max-width:720px){.island-card.is-expanded .atlas-intro{flex-direction:row;align-items:center;gap:8px}.island-card.is-expanded .atlas-next{display:none}.island-card.is-expanded .atlas-footer{flex-direction:row;flex-wrap:wrap}.island-card.is-expanded .atlas-intro h2{font-size:23px}}
+
+/* Preserve the full 3D mascot silhouette in each existing layout slot. */
+img[src*="koma-3d"]{object-fit:contain} .guide>img.koma,.step-narrative>img.koma{flex-shrink:0;height:auto}.mode-choice img[src*="koma-3d"]{max-width:100%;object-fit:contain}.brand img[src*="koma-3d"]{height:auto}
