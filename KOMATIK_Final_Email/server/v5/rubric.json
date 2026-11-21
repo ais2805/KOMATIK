@@ -1,0 +1,122 @@
+[
+  {
+    "no": 1,
+    "key": "17; +4 pada 5 ke 9 dan 9 ke 13.",
+    "criterion": "Dugaan 17 dan dua perubahan +4 sebagai dasar.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Dugaan 17 dan dua perubahan +4 sebagai dasar."
+    ]
+  },
+  {
+    "no": 2,
+    "key": "18 stiker; hari keempat 24, hari kelima 18.",
+    "criterion": "Dugaan 18, perubahan -6, dan kelanjutan sampai hari kelima.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Dugaan 18, perubahan -6, dan kelanjutan sampai hari kelima."
+    ]
+  },
+  {
+    "no": 3,
+    "key": "Bertambah 5; 13 - 8 = 5, 18 - 13 = 5 (atau pasangan lain yang sah).",
+    "criterion": "Hubungan +5 dan bukti sekurang-kurangnya dua pasangan.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Hubungan +5 dan bukti sekurang-kurangnya dua pasangan."
+    ]
+  },
+  {
+    "no": 4,
+    "key": "34; 41 - 7 = 34 dan 34 - 7 = 27.",
+    "criterion": "Isian 34 dan hubungan -7 pada kedua sisi bagian kosong.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Isian 34 dan hubungan -7 pada kedua sisi bagian kosong."
+    ]
+  },
+  {
+    "no": 5,
+    "key": "Tidak setuju; seharusnya 19 karena selalu +4. Dari 15 ke 20 adalah +5.",
+    "criterion": "Sikap tidak setuju, koreksi 19, dan bukti yang membantah 20.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Sikap tidak setuju, koreksi 19, dan bukti yang membantah 20."
+    ]
+  },
+  {
+    "no": 6,
+    "key": "Setuju; 30 - 25 = 5, 25 - 20 = 5, lalu 20 - 5 = 15.",
+    "criterion": "Penerimaan jawaban 15 dan dua perpindahan sebagai bukti aturan -5.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Penerimaan jawaban 15 dan dua perpindahan sebagai bukti aturan -5."
+    ]
+  },
+  {
+    "no": 7,
+    "key": "Mulai 3, tambah 4 tiap perpindahan; 3, 7, 11, 15, 19, 23, 27.",
+    "criterion": "Aturan umum yang dapat digunakan ulang dan penerapan hingga posisi ketujuh = 27.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Aturan umum yang dapat digunakan ulang dan penerapan hingga posisi ketujuh = 27."
+    ]
+  },
+  {
+    "no": 8,
+    "key": "Mulai 60, kurang 6 tiap perpindahan; 60, 54, 48, 42, 36, 30, 24, 18.",
+    "criterion": "Aturan umum dan penerapan hingga posisi kedelapan = 18.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Aturan umum dan penerapan hingga posisi kedelapan = 18."
+    ]
+  },
+  {
+    "no": 9,
+    "key": "Mulai 8, tambah 3 sebanyak lima perpindahan; 8, 11, 14, 17, 20, 23. Baris keenam berisi 23 kursi.",
+    "criterion": "Langkah runtut dan kesimpulan 23 kursi yang menjawab baris keenam.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Langkah runtut dan kesimpulan 23 kursi yang menjawab baris keenam."
+    ]
+  },
+  {
+    "no": 10,
+    "key": "Mulai 50, kurang 5 sebanyak enam perpindahan; 50, 45, 40, 35, 30, 25, 20. Kotak ketujuh berisi 20 manik.",
+    "criterion": "Langkah runtut dan kesimpulan 20 manik yang menjawab kotak ketujuh.",
+    "levels": [
+      "Tidak menjawab atau seluruh respons tidak relevan.",
+      "Ada upaya relevan, tetapi hubungan yang digunakan belum benar; jawaban benar tanpa dasar yang relevan juga termasuk skor ini.",
+      "Sebagian hubungan atau langkah benar, tetapi belum cukup mendukung hasil/kesimpulan; terdapat kesalahan penting.",
+      "Inti hubungan dan penyelesaian benar, tetapi satu unsur bukti belum lengkap atau terdapat satu kesalahan hitung kecil yang tidak mengubah cara berpikir.",
+      "Semua unsur berikut terpenuhi: Langkah runtut dan kesimpulan 20 manik yang menjawab kotak ketujuh."
+    ]
+  }
+]

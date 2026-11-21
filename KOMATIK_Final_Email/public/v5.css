@@ -1,0 +1,31 @@
+/* V5 additions over the original V4 visual system. */
+body{font-size:18px}p,label,input,select,textarea,.btn{font-size:18px}input,textarea,select{max-width:100%}.micro,.save-note{font-size:15px}.v5-login{max-width:1180px;margin:0 auto;padding:55px 28px;display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center;min-height:100vh}.v5-login h1{font-size:46px}.welcome>img{width:170px;display:block;margin-bottom:24px}.welcome p{max-width:490px}.v5-login form label{display:block;margin-top:17px}.v5-login form button{width:100%;margin-top:16px}.mode-screen,.teacher-screen{max-width:1280px;margin:auto;padding:38px 30px}.mode-choice{text-align:left;color:var(--ink);cursor:pointer}.mode-choice img{height:200px;display:block;margin:0 auto 24px}.mode-choice:hover{outline:3px solid var(--teal)}.mode-screen>.btn{margin-top:25px}.fraction{display:inline-flex;flex-direction:column;align-items:center;line-height:1.2;vertical-align:middle}.fraction>span:first-child{border-bottom:2px solid currentColor;padding:0 12px 4px}.fraction>span:last-child{padding-top:4px}.v5-icon{width:25px;height:25px;vertical-align:middle}.step-narrative{margin:16px 0 24px;padding:18px}.step-narrative .koma{width:72px}.music-controls{display:flex;align-items:center;gap:8px}.music-controls input{width:65px}.sync-strip{flex-wrap:wrap;gap:12px}.table-scroll{overflow-x:auto}.evidence{white-space:pre-wrap;overflow-wrap:anywhere;font-size:15px;max-height:500px;overflow:auto}.teacher-screen .grid.four{margin-bottom:20px}.teacher-screen input[type=checkbox]{width:auto;margin-right:10px}.teacher-screen .mini-table{min-width:740px}.token{font-family:monospace;font-size:28px;letter-spacing:3px}.sr-only{position:absolute;width:1px;height:1px;clip:rect(0,0,0,0);overflow:hidden}.atlas-grid{pointer-events:none}.game-landscape .map-path{display:block!important;position:absolute;inset:0;background:none!important;border:none!important;clip-path:polygon(15% 70%,34% 47%,55% 70%,70% 34%,88% 69%,88% 70%,70% 35%,55% 71%,34% 48%,15% 71%);background-color:#ffe3a1!important}.teacher-screen h3{margin-top:22px}.teacher-screen .button-row{flex-wrap:wrap}.card input[type=checkbox]{width:auto}.top-actions{flex-wrap:wrap}.nav-link{font-size:17px}
+@media(max-width:1050px){.music-controls{width:100%;justify-content:flex-end}.topbar{height:auto;min-height:90px}.v5-login{gap:25px}.v5-login h1{font-size:35px}}
+@media(max-width:700px){.v5-login{grid-template-columns:1fr;padding:24px 16px;gap:24px}.welcome>img{width:90px;float:left;margin:0 20px 10px 0}.welcome h1{font-size:28px}.welcome p{clear:both}.mode-screen,.teacher-screen{padding:24px 16px}.mode-choice img{height:130px}.topbar>span{display:none}.top-actions{gap:7px}.music-controls{width:auto}.user-chip small{font-size:13px}.step-narrative{display:block}.step-narrative .koma{float:left;margin-right:12px}.sync-strip .button-row{flex-wrap:wrap}.btn{white-space:normal}.mode-screen .grid.two{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+.atlas-grid{display:block;position:absolute;inset:0;width:100%;height:100%}
+
+/* Independent destination; deliberately excluded from the eight-stop route. */
+.map-lab{position:absolute;left:47%;top:8%;transform:translateX(-50%);display:flex;align-items:center;flex-direction:column;padding:9px 17px;background:#fff9e9;border:2px solid #167d70;border-radius:18px;color:#075f55;text-decoration:none;box-shadow:0 4px 12px #153d4733;text-align:center;z-index:1}
+.map-lab>span{font-size:27px;line-height:1}.map-lab b{font-size:16px}.map-lab small{font-size:12px}.map-lab:hover,.map-lab:focus-visible{outline:3px solid #db9b39;outline-offset:3px}
+body.island-expanded{overflow:hidden}
+.island-card.is-expanded{position:fixed;inset:0;z-index:10000;width:100%;height:100%;max-width:none;margin:0;padding:0;border:0;border-radius:0;background:#fffaf0;overflow:auto;display:flex;flex-direction:column}
+.island-card.is-expanded .atlas-intro{flex-wrap:wrap;flex-shrink:0;padding:12px 22px}
+.island-card.is-expanded .atlas-scroll{flex:1;min-height:0;overflow:auto;background:#45b9be}
+.island-card.is-expanded .atlas{min-width:1280px;width:100%;}
+.island-card.is-expanded .map-pin{min-width:135px;max-width:170px;padding:10px}
+.island-card.is-expanded .map-pin b{font-size:19px}
+.island-card.is-expanded .map-pin small{font-size:14px}
+.island-card.is-expanded .map-lab b{font-size:21px}
+.island-card.is-expanded .map-lab small{font-size:15px}
+.island-card.is-expanded .atlas-footer{flex-shrink:0;padding:10px 22px}
+@media(max-width:720px){.island-card.is-expanded .atlas-intro{flex-direction:row;align-items:center;gap:8px}.island-card.is-expanded .atlas-next{display:none}.island-card.is-expanded .atlas-footer{flex-direction:row;flex-wrap:wrap}.island-card.is-expanded .atlas-intro h2{font-size:23px}}
+
+/* Preserve the full 3D mascot silhouette in each existing layout slot. */
+img[src*="koma-3d"]{object-fit:contain} .guide>img.koma,.step-narrative>img.koma{flex-shrink:0;height:auto}.mode-choice img[src*="koma-3d"]{max-width:100%;object-fit:contain}.brand img[src*="koma-3d"]{height:auto}
+
+.v5-login input[readonly]{background:#edf4ef;color:#355650;border-color:#c8d8cc;cursor:default}
+
+/* Hide the injected Deploy Preview review drawer, which is blocked by the app frame policy. */
+body > div[data-netlify-deploy-id][data-netlify-site-id]{display:none!important}
