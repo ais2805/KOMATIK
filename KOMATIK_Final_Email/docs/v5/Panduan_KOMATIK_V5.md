@@ -23,8 +23,8 @@ Build menyiapkan dist dari daftar berkas yang diizinkan. Berkas rubrik server da
 ## Penggunaan guru
 
 1. Buka website, pilih Masuk sebagai guru, gunakan kata sandi yang ditetapkan di Netlify.
-2. Isi kode, kelas, dan nama pada Daftarkan siswa. Kode harus unik dalam kelas.
-3. Sistem membuat token acak delapan karakter berisi huruf dan angka. Unduh kartu akses dan berikan hanya kepada siswa terkait. Token asli hanya tampil saat dibuat atau diatur ulang.
+2. Isi nomor presensi 1–35 dan nama pada Daftarkan siswa. Awalan kode IV-A- dan kelas IV-A sudah tetap.
+3. Sistem membuat token acak delapan karakter berisi huruf dan angka. Unduh kartu akses JPG dan berikan hanya kepada siswa terkait. Token asli hanya tampil saat dibuat atau diatur ulang.
 4. Melalui Buka siswa, perbarui identitas, nonaktifkan akun, atau buat token pengganti. Penggantian token membatalkan sesi lama tanpa menghapus progres.
 5. Gunakan Sesi pembelajaran untuk membuka/menutup aktivitas atau evaluasi. Penutupan tidak menghapus hasil.
 6. Setelah evaluasi dikumpulkan, buka jawaban asli, beri skor 0–4 dan komentar pada tiap butir, lalu Simpan penilaian. Skor kosong berarti belum dinilai.
@@ -32,8 +32,8 @@ Build menyiapkan dist dari daftar berkas yang diizinkan. Berkas rubrik server da
 
 ## Penggunaan siswa
 
-1. Masukkan kode, kelas, nama, dan token dari kartu guru.
-2. Pilih Petualangan untuk Pulau Pola atau Serius untuk daftar tahap. Kedua mode memakai data yang sama.
+1. Buka https://komatik.netlify.app/. Isi nomor presensi 1–35; kelas IV-A dan nama terdaftar muncul otomatis. Masukkan token dari kartu guru. Gunakan Tampilkan token untuk memeriksa ketikan.
+2. Pilih Petualangan untuk Pulau Pola atau Biasa untuk daftar tahap. Kedua mode memakai data yang sama.
 3. Baca Bekal Penjelajah, lanjutkan empat aktivitas, kuis, games, lalu evaluasi. Laboratorium Pola dapat dibuka kapan saja setelah masuk.
 4. Di Laboratorium, ubah bilangan awal, tambah/kurang, banyak posisi, dan uji dugaan. Gunakan Jadikan pola pembanding sebelum mengganti aturan untuk membandingkan dua pola.
 5. Aktivitas menyimpan jawaban awal dan perbaikan. Uraian diperiksa guru; poin hanya untuk komponen objektif. Benar pertama 10, benar kedua 7, dua kali belum benar 0. Penyelesaian aktivitas tetap mendapat lencana.
@@ -68,3 +68,9 @@ Jika soal penelitian berubah, selaraskan rubrik, PDF, dan validasi instrumen; ja
 ## Batasan yang perlu diketahui
 
 Belum ada migrasi otomatis akun/progres lama, impor ulang cadangan melalui UI, atau ekspor PDF massal. Cadangan JSON dapat diunduh, tetapi pemulihan perlu bantuan teknis. Verifikasi Netlify Blobs nyata, penerimaan email Resend, dan uji perangkat fisik masih diperlukan. Pengujian lokal bukan bukti keberhasilan layanan produksi.
+
+## Penyempurnaan 27 November 2026
+
+Kartu JPG mencantumkan komatik.netlify.app. Mode Biasa tetap menggunakan progres mode sebelumnya. Bantuan Si KOMA mengikuti langkah aktif; waktu, langkah, dan isi bantuan dicatat bersama riwayat. Buka siswa menampilkan tabel jawaban awal dan perbaikan, semua revisi, serta bantuan yang dibuka. Jawaban dan data lama tetap tersedia.
+
+Latihan menyusun langkah menerima urutan alternatif yang memenuhi hubungan antarlangkah. Pemeriksaan yang sama dijalankan pada browser dan server. Poin lama yang sudah tercatat tidak ditulis ulang. Penilaian evaluasi uraian tetap manual.

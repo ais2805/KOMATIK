@@ -1,6 +1,7 @@
 import {randomBytes,randomInt,createHash,createHmac,scryptSync,timingSafeEqual} from 'node:crypto';
 import {newState,normalize} from '../../public/core.js';
 import {quiz,missions,evaluation} from '../../public/content.js';
+import {validActivityOrder,validQuizOrder} from '../../public/learning.js';
 const hash=x=>createHash('sha256').update(String(x)).digest('hex');
 const eq=(a,b)=>{const x=Buffer.from(String(a)),y=Buffer.from(String(b));return x.length===y.length&&timingSafeEqual(x,y)};
 const norm=x=>String(x||'').trim().replace(/\s+/g,' ').toUpperCase();
@@ -12,7 +13,7 @@ const stages=['materi','a1','a2','a3','a4','kuis','game','evaluasi'];
 const fields={a1:['sort0','sort1','sort2','sort3','sort4','small','guess','reason'],a2:['diff1','diff2','relation','row4','row5','fix','down1','down2','down4','down5','downReason'],a3:['rule','proof','row6','transfer','compare'],a4:['debug','conclusion','reflection']};
 const filled=x=>typeof x==='string'&&x.trim().length>0&&x.length<=6000;
 export const points=a=>a?.[0]?.correct?10:a?.[1]?.correct?7:0;
-export function objective(stage,d){if(stage==='a1')return [0,1,2,3].every(i=>d['sort'+i]==='diketahui')&&d.sort4==='ditanyakan';if(stage==='a2')return ['diff1','diff2','row4','row5','down1','down2','down4','down5'].every((k,i)=>Number(d[k])===[4,4,18,22,5,5,20,15][i]);if(stage==='a3')return !d.info0&&!d.info1&&d.info2&&d.info3&&d.info4&&Number(d.row6)===26;if(stage==='a4')return JSON.stringify(d.order)===JSON.stringify([4,1,3,0,2]);return false;}
+export function objective(stage,d){if(stage==='a1')return [0,1,2,3].every(i=>d['sort'+i]==='diketahui')&&d.sort4==='ditanyakan';if(stage==='a2')return ['diff1','diff2','row4','row5','down1','down2','down4','down5'].every((k,i)=>Number(d[k])===[4,4,18,22,5,5,20,15][i]);if(stage==='a3')return !d.info0&&!d.info1&&d.info2&&d.info3&&d.info4&&Number(d.row6)===26;if(stage==='a4')return validActivityOrder(d.order);return false;}
 function clean(d,old,profil,open){
  if(!d||typeof d!=='object'||!d.drafts||!d.records||!d.quiz||!d.game||!d.evaluation||!Array.isArray(d.done))bad('Struktur progres tidak sesuai.');
  const out=structuredClone(old);out.student={code:profil.kode,name:profil.nama,className:profil.kelas};
@@ -35,7 +36,7 @@ function clean(d,old,profil,open){
   const prev=old.quiz.attempts[i]||[],next=d.quiz.attempts?.[i]||[];
   if(!Array.isArray(next)||next.length>2||next.length<prev.length||next.length>prev.length+1)bad('Dua kesempatan per soal.');
   if(next.length>prev.length&&prev.at(-1)?.correct)bad('Soal telah selesai.');
-  attempts[i]=structuredClone(prev);if(next.length>prev.length){if(!old.done.includes('a4'))bad('Selesaikan empat aktivitas dahulu.');if(i>0&&!(attempts[i-1]?.at(-1)?.correct||attempts[i-1]?.length===2))bad('Selesaikan soal sebelumnya.');const q=quiz[i],response=next.at(-1).response,correct=q.type==='order'?JSON.stringify(response)===JSON.stringify(q.answer):response===q.key;attempts[i].push({response,correct,at:now()});}
+  attempts[i]=structuredClone(prev);if(next.length>prev.length){if(!old.done.includes('a4'))bad('Selesaikan empat aktivitas dahulu.');if(i>0&&!(attempts[i-1]?.at(-1)?.correct||attempts[i-1]?.length===2))bad('Selesaikan soal sebelumnya.');const q=quiz[i],response=next.at(-1).response,correct=q.type==='order'?validQuizOrder(response):response===q.key;attempts[i].push({response,correct,at:now()});}
  }
  out.quiz={...d.quiz,attempts,i:Math.min(quiz.length,Math.max(0,Number(d.quiz.i)||0))};
  const gr={};for(let i=0;i<missions.length;i++){const prev=old.game.records[i]||[],next=d.game.records?.[i]||[];if(!Array.isArray(next)||next.length>2||next.length<prev.length||next.length>prev.length+1)bad('Dua kesempatan per pos.');gr[i]=structuredClone(prev);if(next.length>prev.length){if(!old.done.includes('kuis'))bad('Selesaikan kuis dahulu.');if(prev.at(-1)?.correct)bad('Pos telah selesai.');if(i>0&&!(gr[i-1]?.at(-1)?.correct||gr[i-1]?.length===2))bad('Selesaikan pos sebelumnya.');const a=next.at(-1);if(!filled(a.answer)||!filled(a.reason))bad('Isi jawaban dan alasan.');gr[i].push({answer:a.answer,reason:a.reason,correct:missions[i].key===null?null:normalize(a.answer)===normalize(missions[i].key),at:now()});}}

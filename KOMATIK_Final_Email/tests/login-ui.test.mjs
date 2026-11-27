@@ -36,3 +36,19 @@ test('teacher password login remains separate',()=>{
   assert.match(html,/name="password" type="password"/);
   assert.doesNotMatch(html,/name="presensi"/);
 });
+
+test('token visibility is optional and the submit button is unambiguous',()=>{
+ const html=loginHTML();
+ assert.match(html,/<button type="button"[^>]*data-v5="toggle-token"[^>]*aria-pressed="false"/);
+ assert.match(html,/<button type="submit" class="btn">Masuk dan lanjutkan/);
+ assert.match(html,/aria-label="Cara masuk"/);
+ assert.match(html,/minlength="8" maxlength="8"/);
+});
+test('downloaded access card uses the official renamed address',()=>{
+ const drawn=[];
+ document.createElement=()=>({getContext:()=>({fillRect(){},strokeRect(){},measureText:()=>({width:100}),fillText(text){drawn.push(text)}})});
+ const canvas=accessCardCanvas({nama:'Siswa Simulasi',kode:'IV-A-1',kelas:'IV-A'},'DEMO2345');
+ assert.equal(canvas.width,1600);assert.equal(canvas.height,1000);
+ assert.ok(drawn.includes('Masuk melalui: komatik.netlify.app'));
+ assert.ok(!drawn.some(t=>t.includes('komatik-v4')));
+});

@@ -32,3 +32,35 @@ body > div[data-netlify-deploy-id][data-netlify-site-id]{display:none!important}
 
 
 .attendance-code{display:flex;align-items:center;gap:12px}.attendance-code>span{font-weight:700;white-space:nowrap}.attendance-code input{min-width:0;flex:1}
+
+.login-steps{margin:18px 0;padding:14px 18px 14px 38px;background:#edf6f1;border-radius:12px;font-size:16px;line-height:1.7}
+.token-input{display:flex;gap:8px;align-items:stretch}
+.token-input input{min-width:0;flex:1}
+.v5-login .token-input button{width:auto;margin:0;flex:0 0 auto;white-space:nowrap;min-height:48px;font-size:15px;padding:10px 12px}
+.activity-history{margin-top:28px}
+.activity-record{margin:14px 0;border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+.activity-record>summary{cursor:pointer;font-size:18px;line-height:1.6}
+.activity-record>summary span{display:block;color:var(--muted);font-size:15px;margin-left:20px}
+.activity-record h4{margin:20px 0 10px}
+.teacher-screen .response-table{min-width:0;table-layout:fixed;margin:16px 0}
+.response-table th,.response-table td{vertical-align:top;overflow-wrap:anywhere;white-space:pre-wrap;font-size:16px;line-height:1.6}
+.response-table thead th{background:#edf6f1}
+.response-table tbody th{font-weight:600}
+.revision-history{margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:12px}
+.hint-history{padding-left:24px}
+.hint-history li{padding:8px 0 14px}
+.hint-history p{margin:5px 0;font-size:16px}
+.hint-history small{color:var(--muted)}
+.activity-record dd{margin:6px 0 16px;white-space:pre-wrap;overflow-wrap:anywhere}
+.activity-record dt{font-weight:700}
+@media(max-width:600px){
+ .token-input{flex-wrap:wrap}
+ .token-input input{flex-basis:100%}
+ .v5-login .token-input button{margin-left:auto}
+ .activity-record{padding:12px}
+ .response-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+ .response-table,.response-table tbody,.response-table tr,.response-table th,.response-table td{display:block;width:100%}
+ .response-table tr{border:1px solid var(--line);border-radius:10px;margin:12px 0;overflow:hidden}
+ .response-table tbody th{background:#edf6f1}
+ .response-table td:before{content:attr(data-label);display:block;font-weight:700;color:var(--teal);margin-bottom:5px}
+}

@@ -2,7 +2,7 @@ import './check.mjs';
 import {rmSync,mkdirSync,copyFileSync,cpSync,existsSync,writeFileSync} from 'node:fs';
 // Explicit publication list: obsolete uploads cannot expose old assessment keys.
 rmSync('dist',{recursive:true,force:true});mkdirSync('dist');
-for(const f of ['index.html','app.js','content.js','config.js','core.js','journey.js','style.css','v5-client.js','v5-media.js','v5.css'])copyFileSync('public/'+f,'dist/'+f);
+for(const f of ['index.html','app.js','content.js','config.js','core.js','journey.js','style.css','v5-client.js','v5-media.js','v5.css','learning.js','activity-history.js'])copyFileSync('public/'+f,'dist/'+f);
 for(const dir of ['assets','fonts'])if(existsSync('public/'+dir))cpSync('public/'+dir,'dist/'+dir,{recursive:true});
 console.log('Clean dist created; server rubrics, legacy JS and test routes excluded.');
 
