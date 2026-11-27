@@ -32,9 +32,9 @@ export const evaluation = [
 ];
 export const activityMeta = [
  {title:'Memahami masalah',ct:'Dekomposisi',place:'Taman Si KOMA',goal:'Pisahkan informasi, lalu sampaikan dugaanmu.',indicator:'Mengajukan dugaan',hint:'Apa yang sudah diketahui? Baris ke berapa yang ingin kita cari?'},
- {title:'Menemukan pola',ct:'Pengenalan pola',place:'Jembatan Pola',goal:'Bandingkan jumlah pot dan temukan perubahannya.',indicator:'Menemukan pola atau hubungan',hint:'Pasangkan pot yang sama. Hitung pot tambahan pada setiap baris.'},
- {title:'Membuat aturan',ct:'Abstraksi',place:'Gua Aturan',goal:'Pilih informasi penting dan uji aturanmu.',indicator:'Memberikan justifikasi dan melakukan generalisasi',hint:'Apakah warna pot menentukan jumlahnya? Tunjukkan dua perpindahan yang cocok.'},
- {title:'Menyusun langkah',ct:'Berpikir algoritma',place:'Mercusuar Pola',goal:'Jalankan langkahmu, periksa, lalu simpulkan.',indicator:'Menarik kesimpulan',hint:'Baris pertama sudah ada. Untuk sampai baris kelima, berapa kali kamu perlu menambah?'}
+ {title:'Menemukan pola',ct:'Pengenalan pola',place:'Jembatan Pola',goal:'Bandingkan banyak pot dan temukan perubahannya.',indicator:'Menemukan pola atau hubungan',hint:'Pasangkan pot yang sama. Hitung pot tambahan pada setiap baris.'},
+ {title:'Membuat aturan',ct:'Abstraksi',place:'Gua Aturan',goal:'Pilih informasi penting dan uji aturanmu.',indicator:'Memberikan justifikasi dan melakukan generalisasi',hint:'Apakah warna pot menentukan banyaknya? Tunjukkan dua perpindahan yang cocok.'},
+ {title:'Menyusun langkah',ct:'Berpikir Algoritmik',place:'Mercusuar Pola',goal:'Jalankan langkahmu, periksa, lalu simpulkan.',indicator:'Memberikan justifikasi terhadap langkah dan menarik kesimpulan',hint:'Baris pertama sudah ada. Untuk sampai baris kelima, berapa kali kamu perlu menambah?'}
 ];
 export const missions = [
  {title:'Taman Informasi',icon:'♧',x:15,y:70,q:'Kursi per baris: 4, 7, 10. Pertambahannya tetap. Apa yang diketahui dan ditanyakan jika mencari baris ke-5? Tuliskan dugaan jumlahnya.',key:'16',hint:'Pisahkan data tiga baris awal dari baris yang ingin dicari. Perubahannya +3.',guide:'Diketahui 4, 7, 10 dan pertambahan tetap; dicari baris 5. Lanjutan 13, 16.'},

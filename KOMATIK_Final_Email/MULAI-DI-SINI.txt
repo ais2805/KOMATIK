@@ -1,3 +1,6 @@
+KOMATIK V5: gunakan docs/v5/Panduan_KOMATIK_V5.md.
+Panduan di bawah adalah arsip versi sebelumnya.
+
 KOMATIK FINAL EMAIL — 7 November 2026
 
 Baca PANDUAN_DEPLOY_NETLIFY.md terlebih dahulu.
